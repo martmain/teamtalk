@@ -19,11 +19,10 @@ Based on MIT's [Society of Mind](https://arxiv.org/abs/2305.14325) research — 
 ## Install
 
 ```bash
-# Go
-go install github.com/Higangssh/teamtalk@latest
-
-# Or download binary
-curl -fsSL https://github.com/Higangssh/teamtalk/releases/latest/download/teamtalk_$(uname -s)_$(uname -m).tar.gz | tar xz
+# Build from source
+git clone https://github.com/Higangssh/teamtalk.git
+cd teamtalk
+go build -o teamtalk .
 ```
 
 ## Usage
