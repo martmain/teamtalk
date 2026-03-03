@@ -19,7 +19,10 @@ Based on MIT's [Society of Mind](https://arxiv.org/abs/2305.14325) research — 
 ## Install
 
 ```bash
-# Build from source
+# One-liner (requires Go 1.22+)
+go install github.com/Higangssh/teamtalk@latest
+
+# Or build from source
 git clone https://github.com/Higangssh/teamtalk.git
 cd teamtalk
 go build -o teamtalk .
