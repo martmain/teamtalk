@@ -272,15 +272,25 @@ func (o *OpenAIProvider) Call(system, prompt string, tracker *CostTracker) strin
 }
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println("Usage: teamtalk <question>")
-		fmt.Println("       teamtalk --demo")
-		fmt.Println("")
-		fmt.Println("Environment variables:")
-		fmt.Println("  ANTHROPIC_API_KEY    Use Claude (default: claude-sonnet-4-20250514)")
-		fmt.Println("  OPENAI_API_KEY       Use GPT (default: gpt-4o-mini)")
-		fmt.Println("  TEAMTALK_MODEL       Override model name")
-		os.Exit(1)
+	if len(os.Args) < 2 || os.Args[1] == "--help" || os.Args[1] == "-h" {
+		fmt.Println(`🏛️  TeamTalk — AI team debates in your terminal
+
+Usage:
+  teamtalk "Should we rewrite in Go?"    Run a team debate
+  teamtalk --demo                        See a demo (no API key needed)
+
+Setup:
+  export ANTHROPIC_API_KEY=sk-ant-...    Use Claude (recommended)
+  export OPENAI_API_KEY=sk-...           Use ChatGPT
+
+Options:
+  TEAMTALK_MODEL=<model>                 Override model (e.g. claude-3-haiku-20240307)
+
+Examples:
+  teamtalk "Should we add dark mode?"
+  teamtalk "Monolith vs microservices?"
+  teamtalk "Should we hire a junior or senior dev?"`)
+		os.Exit(0)
 	}
 
 	question := strings.Join(os.Args[1:], " ")
@@ -292,8 +302,12 @@ func main() {
 
 	provider := detectProvider()
 	if provider == nil {
-		fmt.Println("⚠️  No API key found. Running demo mode.\n")
-		fmt.Println("Set ANTHROPIC_API_KEY or OPENAI_API_KEY to use real AI.\n")
+		fmt.Println(`⚠️  No API key found. Running demo mode instead.
+
+To use real AI debates, set one of:
+  export ANTHROPIC_API_KEY=sk-ant-...    (get key: console.anthropic.com)
+  export OPENAI_API_KEY=sk-...           (get key: platform.openai.com)
+`)
 		runDemo()
 		return
 	}

@@ -21,28 +21,36 @@ Based on MIT's [Society of Mind](https://arxiv.org/abs/2305.14325) research — 
 ```bash
 # One-liner (requires Go 1.22+)
 go install github.com/Higangssh/teamtalk@latest
+```
 
-# Or build from source
+Or build from source:
+```bash
 git clone https://github.com/Higangssh/teamtalk.git
 cd teamtalk
 go build -o teamtalk .
 ```
 
-## Usage
+## Quick Start
 
 ```bash
-# Set your API key (Anthropic or OpenAI)
-export ANTHROPIC_API_KEY=sk-ant-...
-# or
-export OPENAI_API_KEY=sk-...
+# 1. Install
+go install github.com/Higangssh/teamtalk@latest
 
-# Run a debate
+# 2. Try it instantly (no API key needed)
+teamtalk --demo
+
+# 3. Use with real AI
+export ANTHROPIC_API_KEY=sk-ant-...   # or OPENAI_API_KEY=sk-...
 teamtalk "Should we rewrite our monolith to microservices?"
+```
+
+## More Examples
+
+```bash
 teamtalk "Do we need Kubernetes for 1000 users?"
 teamtalk "Should we hire a junior or senior developer?"
-
-# Try without API key
-teamtalk --demo
+teamtalk "Build vs buy for our auth system?"
+teamtalk "Is GraphQL worth the complexity over REST?"
 ```
 
 ## How It Works
